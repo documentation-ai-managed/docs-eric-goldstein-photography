@@ -36,6 +36,10 @@
             "icon": "package",
             "pages": [
               {
+                "title": "Videography Services",
+                "path": "videography-services"
+              },
+              {
                 "title": "Photography Services",
                 "path": "services",
                 "icon": "file-text"
