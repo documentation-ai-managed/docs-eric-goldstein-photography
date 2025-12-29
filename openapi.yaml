@@ -1,0 +1,151 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Eric Goldstein Photography API
+  license:
+    name: MIT
+servers:
+  - url: http://api.ericgoldsteinphoto.com/v1
+paths:
+  /bookings:
+    get:
+      summary: List all bookings
+      operationId: listBookings
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: A paged array of bookings
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bookings'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create booking
+      operationId: createBooking
+      responses:
+        201:
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /bookings/{bookingId}:
+    get:
+      summary: Get booking details
+      operationId: getBookingById
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          description: The id of the booking to retrieve
+          schema:
+            type: string
+      responses:
+        200:
+          description: Expected response for a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bookings'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /galleries:
+    get:
+      summary: List all galleries
+      operationId: listGalleries
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: A paged array of galleries
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Galleries'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Booking:
+      required:
+        - id
+        - clientName
+      properties:
+        id:
+          type: integer
+          format: int64
+        clientName:
+          type: string
+        eventDate:
+          type: string
+        location:
+          type: string
+    Bookings:
+      type: array
+      items:
+        $ref: '#/components/schemas/Booking'
+    Gallery:
+      required:
+        - id
+        - title
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        eventType:
+          type: string
+    Galleries:
+      type: array
+      items:
+        $ref: '#/components/schemas/Gallery'
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

@@ -1,0 +1,130 @@
+{
+  "name": "Eric Goldstein Photography",
+  "initialRoute": "introduction",
+  "colors": {
+    "light": {
+      "brand": "#5a5a5a"
+    },
+    "dark": {
+      "brand": "#838383"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "introduction",
+                "icon": "home"
+              },
+              {
+                "title": "Booking Process",
+                "path": "booking-process",
+                "icon": "calendar"
+              }
+            ]
+          },
+          {
+            "group": "Services",
+            "icon": "package",
+            "pages": [
+              {
+                "title": "Photography Services",
+                "path": "services",
+                "icon": "file-text"
+              },
+              {
+                "title": "Areas Served",
+                "path": "areas-served",
+                "icon": "globe"
+              }
+            ]
+          },
+          {
+            "group": "FAQ",
+            "icon": "help-circle",
+            "pages": [
+              {
+                "title": "Frequently Asked Questions",
+                "path": "faq",
+                "icon": "help-circle"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Endpoints",
+            "openapi": "openapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Help Center",
+        "icon": "help-circle",
+        "pages": [
+          {
+            "title": "Help Center",
+            "path": "help-center",
+            "icon": "home"
+          },
+          {
+            "group": "FAQs",
+            "icon": "help-circle",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "How to Book",
+                "path": "help-center/faq/how-to-book"
+              }
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "icon": "alert-triangle",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "Not Receiving Photos",
+                "path": "help-center/troubleshooting/not-receiving-photos"
+              }
+            ]
+          },
+          {
+            "group": "Guides",
+            "icon": "book-open",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "Preparing for Your Session",
+                "path": "help-center/guides/preparing-for-your-session"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock",
+        "pages": [
+          {
+            "title": "Release History",
+            "path": "changelog",
+            "icon": "history"
+          }
+        ]
+      }
+    ]
+  }
+}
